@@ -42,7 +42,7 @@ function Header() {
     const [planet, setPlanet] = useState([]);
     const [input, setInput] = useState("");
 
-    // console.log(planet);
+    console.log(planet);
 
     const aOk = (event) =>{
         event.preventDefault();
