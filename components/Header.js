@@ -39,29 +39,53 @@ function Header() {
         setInput("");
     }
 
-    const findMatched = (singlePlanet) =>{
-        if(singlePlanet==="earth"){
-            return planetImage.earth
-        } 
-        if(singlePlanet==="jupiter"){
-            return planetImage.jupiter
-        } 
-        if(singlePlanet==="mars"){
-            return planetImage.mars
-        } 
-        if(singlePlanet==="mercury"){
-            return planetImage.mercury
-        } 
-        if(singlePlanet==="saturn"){
-            return planetImage.saturn
-        } 
-        if(singlePlanet==="venus"){
-            return planetImage.venus
-        }
-        else {
-            return planetImage.noImg
-        }
+    // again againTry
+    const againTry = (singlePlanet) => {
+        return planetImage [singlePlanet]
     }
+
+    // testing area
+    // const withSwitch = (singlePlanet) =>{
+    //     switch(singlePlanet){
+    //         case "earth": 
+    //             return planetImage.earth;
+    //         case "jupiter":
+    //             return planetImage.jupiter;
+    //         case "mars":
+    //             return planetImage.mars;
+    //         case "mercury":
+    //             return planetImage.mercury;
+    //         case "saturn":
+    //             return planetImage.saturn;
+    //         case "venus":
+    //             return planetImage.venus;
+    //             default: return
+    //     }        
+    // }
+
+    // const findMatched = (singlePlanet) =>{
+    //     if(singlePlanet==="earth"){
+    //         return planetImage.earth
+    //     } 
+    //     if(singlePlanet==="jupiter"){
+    //         return planetImage.jupiter
+    //     } 
+    //     if(singlePlanet==="mars"){
+    //         return planetImage.mars
+    //     } 
+    //     if(singlePlanet==="mercury"){
+    //         return planetImage.mercury
+    //     } 
+    //     if(singlePlanet==="saturn"){
+    //         return planetImage.saturn
+    //     } 
+    //     if(singlePlanet==="venus"){
+    //         return planetImage.venus
+    //     }
+    //     else {
+    //         return planetImage.noImg
+    //     }
+    // }
 
     function handleOnDragEnd (result) {
         // console.log(result);
@@ -96,7 +120,7 @@ function Header() {
                     {planet.map((singlePlanet, index) => <Draggable key={singlePlanet} draggableId={singlePlanet} index={index}>
                         {(provided)=>(
                             <div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
-                            <Planet singlePlanet={singlePlanet} singleImg={findMatched(singlePlanet)}/>
+                            <Planet singlePlanet={singlePlanet} singleImg={againTry(singlePlanet)}/>
                             </div>
                         )}
                         </Draggable>
