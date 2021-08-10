@@ -7,6 +7,36 @@ import saturnImg from '../images/saturn.jpeg';
 import venusImg from '../images/venus.jpeg';
 import Planet from './Planet';
 
+const planetImage = {
+    earth: earthImg,
+    jupiter: jupiterImg,
+    mars: marsImg,
+    mercury: mercuryImg,
+    saturn: saturnImg,
+    venus: venusImg,
+}
+
+// const findMatched = () =>{
+//         if(singlePlanet==="earth"){
+//             return planetImage.earth
+//         } 
+//         if(singlePlanet==="jupiter"){
+//             return planetImage.jupiter
+//         } 
+//         if(singlePlanet==="mars"){
+//             return planetImage.mars
+//         } 
+//         if(singlePlanet==="mercury"){
+//             return planetImage.mercury
+//         } 
+//         if(singlePlanet==="saturn"){
+//             return planetImage.saturn
+//         } 
+//         if(singlePlanet==="venus"){
+//             return planetImage.venus
+//         }
+//     }
+
 function Header() {
 
     const [planet, setPlanet] = useState([]);
@@ -24,8 +54,32 @@ function Header() {
         setInput("");
     }
 
+    const findMatched = (singlePlanet) =>{
+        if(singlePlanet==="earth"){
+            return planetImage.earth
+        } 
+        if(singlePlanet==="jupiter"){
+            return planetImage.jupiter
+        } 
+        if(singlePlanet==="mars"){
+            return planetImage.mars
+        } 
+        if(singlePlanet==="mercury"){
+            return planetImage.mercury
+        } 
+        if(singlePlanet==="saturn"){
+            return planetImage.saturn
+        } 
+        if(singlePlanet==="venus"){
+            return planetImage.venus
+        }
+        else {
+            return planetImage.noImg
+        }
+    }
+
     return (
-        <header className="">
+        <header className="container mx-auto w-1/3">
             <form>
                 <label>
                     Name:
@@ -39,7 +93,7 @@ function Header() {
                 <input onClick={aOk} type="submit" value="Generate" />
             </form>
             {/* {planet.map(singlePlanet => <h1 key={singlePlanet}>{singlePlanet}</h1>)} */}
-            {planet.map(singlePlanet => <Planet key={singlePlanet} singlePlanet={singlePlanet}/>)}
+            {planet.map(singlePlanet => <Planet key={singlePlanet} singlePlanet={singlePlanet} singleImg={findMatched(singlePlanet)}/>)}
         </header>
     )
 }
