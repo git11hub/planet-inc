@@ -25,8 +25,6 @@ function Header() {
     const [planet, setPlanet] = useState([]);
     const [input, setInput] = useState("");
 
-    
-
     console.log(planet);
 
     const aOk = (event) =>{
@@ -41,51 +39,9 @@ function Header() {
 
     // again againTry
     const againTry = (singlePlanet) => {
-        return planetImage [singlePlanet]
+        const lowerCasePlanet = singlePlanet.toLowerCase();
+        return planetImage [lowerCasePlanet.replace(/\s/g, '')]
     }
-
-    // testing area
-    // const withSwitch = (singlePlanet) =>{
-    //     switch(singlePlanet){
-    //         case "earth": 
-    //             return planetImage.earth;
-    //         case "jupiter":
-    //             return planetImage.jupiter;
-    //         case "mars":
-    //             return planetImage.mars;
-    //         case "mercury":
-    //             return planetImage.mercury;
-    //         case "saturn":
-    //             return planetImage.saturn;
-    //         case "venus":
-    //             return planetImage.venus;
-    //             default: return
-    //     }        
-    // }
-
-    // const findMatched = (singlePlanet) =>{
-    //     if(singlePlanet==="earth"){
-    //         return planetImage.earth
-    //     } 
-    //     if(singlePlanet==="jupiter"){
-    //         return planetImage.jupiter
-    //     } 
-    //     if(singlePlanet==="mars"){
-    //         return planetImage.mars
-    //     } 
-    //     if(singlePlanet==="mercury"){
-    //         return planetImage.mercury
-    //     } 
-    //     if(singlePlanet==="saturn"){
-    //         return planetImage.saturn
-    //     } 
-    //     if(singlePlanet==="venus"){
-    //         return planetImage.venus
-    //     }
-    //     else {
-    //         return planetImage.noImg
-    //     }
-    // }
 
     function handleOnDragEnd (result) {
         // console.log(result);
@@ -96,18 +52,18 @@ function Header() {
 
         setPlanet(items);
     }
-
+    
     return (
-        <header className="container mx-auto w-1/3">
+        <header className="container mx-auto w-1/3" download>
             <form>
                 <label>
-                    Name:
+                    Planet:
                     <input 
                     value={input}
                     onChange={(event) => setInput(event.target.value)}
                     type="text" 
                     name="name" 
-                    placeholder="Type a planet..."/>
+                    placeholder=" Type a planet..."/>
                 </label>
                 <input onClick={aOk} type="submit" value="Generate" />
             </form>
@@ -133,6 +89,11 @@ function Header() {
                 </Droppable>
             </DragDropContext>
 
+            {/* <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="path/to/file.ext" download>Download this page</button> */}
+
+            <button className="mt-5" type="submit">
+                <a className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" href="#" download="page.html">Download</a>
+            </button>
         </header>
     )
 }
